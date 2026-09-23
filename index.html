@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RadixRef — Tabla ASCII interactiva 0–127 + conversores bin/hex/oct</title>
-<meta name="description" content="Tabla ASCII completa e interactiva (0-127) con buscador, preview detallado y conversores binario, hexadecimal, octal y decimal. Estático, rápido, sin backend.">
+<title>RadixRef — Tabla ASCII interactiva 0–255 + conversores bin/hex/oct</title>
+<meta name="description" content="Tabla ASCII completa e interactiva (0-255, incluye extendido CP437) con buscador, preview detallado y conversores binario, hexadecimal, octal y decimal. Estático, rápido, sin backend.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,13 +16,13 @@
 
 <header class="titleblock">
   <div class="tb-left">
-    <p class="kicker">RADIXREF · V1 · 0–127</p>
+    <p class="kicker">RADIXREF · 0–255 COMPLETO</p>
     <h1>Tabla ASCII <span>interactiva</span></h1>
     <p class="sub">Busca por letra, símbolo o código. Selecciona para ver dec / hex / oct / bin y copiar. Conversores integrados abajo.</p>
   </div>
   <div class="tb-right">
     <dl class="spec">
-      <div><dt>RANGO</dt><dd>0–127</dd></div>
+      <div><dt>RANGO</dt><dd>0–255</dd></div>
       <div><dt>MODO</dt><dd>OPERATE</dd></div>
       <div><dt>DEPLOY</dt><dd>GITHUB PAGES</dd></div>
     </dl>
@@ -41,6 +41,7 @@
     <button data-f="upper" aria-pressed="false">A–Z</button>
     <button data-f="lower" aria-pressed="false">a–z</button>
     <button data-f="symbols" aria-pressed="false">Símbolos</button>
+    <button data-f="extended" aria-pressed="false">128–255</button>
   </div>
   <p id="count" class="count" role="status" aria-live="polite"></p>
 </div>
@@ -51,7 +52,7 @@
       <h2 id="h-tabla">TABLA · <span id="rangeLbl">128</span> ENTRADAS</h2>
       <p class="hint">Flechas ← → ↑ ↓ para moverte · Enter copia el carácter</p>
     </div>
-    <div id="tabla" class="grid" role="listbox" aria-label="Tabla ASCII 0 a 127" tabindex="0"></div>
+    <div id="tabla" class="grid" role="listbox" aria-label="Tabla ASCII 0 a 255" tabindex="0"></div>
     <div id="empty" class="empty" hidden>
       <p>Sin resultados para esa búsqueda.</p>
       <button id="reset">Limpiar búsqueda</button>

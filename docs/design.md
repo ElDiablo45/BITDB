@@ -39,14 +39,14 @@ Reglas: **One Accent** (el azul solo marca selección/estado) · **Tinted Black*
 
 ```
 +----------------------------------------------------------+
-| TITLE BLOCK   RADIXREF·V1·0-127      [RANGO][MODO][DEPLOY]|
+| TITLE BLOCK   RADIXREF·0-255          [RANGO][MODO][DEPLOY]|
 +----------------------------------------------------------+
 | BUSCAR [....................]  [Todos][Control][0-9][A-Z] |
 |                              [a-z][Símbolos]  128/128    |
 +-------------------------------+------------------------+
 | TABLA (scroll 560px)          | PREVIEW (sticky)       |
 | [00 NUL][01 SOH][02 STX]...   |   GIGANTE "A"          |
-| ...128 celdas, caret bloque   |   DEC/HEX/OCT/BIN/     |
+| ...256 celdas, caret bloque   |   DEC/HEX/OCT/BIN/     |
 |                               |   CHAR/HTML + copiar   |
 |                               |   BITS 7-0 [0][1]...   |
 +-------------------------------+------------------------+

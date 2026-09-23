@@ -24,19 +24,19 @@ Lo que un vecino no puede copiar tal cual: tabla + buscador facetado + preview v
 
 ## Operating Context
 
-Uso en navegador desktop-first, teclado + ratón. Deploy estático en GitHub Pages (`ElDiablo45/RadixRef`). Sin backend, sin cuentas. Flujos: explorar tabla 0-127 V1, filtrar/buscar, seleccionar para ver dec/hex/oct/bin/HTML/entidad/descripción, copiar al portapapeles, convertir valores entre bases.
+Uso en navegador desktop-first, teclado + ratón. Deploy estático en GitHub Pages (`ElDiablo45/RadixRef`). Sin backend, sin cuentas. Flujos: explorar tabla 0-255 completa (base + extendido CP437), filtrar/buscar, seleccionar para ver dec/hex/oct/bin/HTML/entidad/descripción, copiar al portapapeles, convertir valores entre bases.
 
 ## Capabilities and Constraints
 
 Confirmado:
-- Tabla ASCII interactiva completa, con filtros por letras, símbolos, control, dígitos.
-- Búsqueda texto + por código numérico.
+- Tabla ASCII 0-255 completa (base + extendido CP437), con filtros por letras, símbolos, control, dígitos y extendido.
+- Búsqueda texto + por código numérico (español e inglés).
 - Preview del seleccionado con todas sus representaciones y copy buttons.
 - Conversores binario / hexadecimal / octal / decimal integrados.
 - 100% estático, funciona en GitHub Pages, sin build obligatorio.
 
 Sin decidir (abierto, no inventar):
-- Extendido 128-255 / UTF-8 extra: pospuesto post-V1.
+- Datos: nombres ES de elcodigoascii.com.ar (solo datos, diseño propio).
 - i18n: ¿solo ES o ES/EN?
 - Persistencia local (favoritos / historial) — propuesto, no confirmado.
 - Nombre final: repo sugiere `RadixRef`, pendiente confirmación.

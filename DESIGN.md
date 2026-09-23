@@ -1,6 +1,6 @@
 ---
 name: RadixRef
-description: Tabla ASCII interactiva 0–127 con conversores bin/oct/dec/hex en HUD azul oscuro.
+description: Tabla ASCII interactiva 0–255 con conversores bin/oct/dec/hex en HUD azul oscuro.
 colors:
   signal-blue: "#4d8dff"
   action-navy: "#2456d6"
