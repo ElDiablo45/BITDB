@@ -35,6 +35,7 @@
     splash.classList.add("hide");
     window.setTimeout(function () {
       splash.hidden = true;
+      if (splash.remove) { try { splash.remove(); } catch (e) {} }
       document.body.classList.remove("locked");
       var q = document.getElementById("q");
       if (q && q.focus) { try { q.focus({ preventScroll: true }); } catch (e) { q.focus(); } }
