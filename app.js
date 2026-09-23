@@ -84,6 +84,7 @@ function applyFilter(){
   }
   rangeLbl.textContent = n;
   empty.hidden = n !== 0;
+  if (n === 0) $("emptyQ").textContent = '"' + q.value.trim() + '"' + (activeFilter !== "all" ? " en " + CAT_LBL[activeFilter] : "");
   const sel = BY_DEC[selected];
   count.textContent = n + " / " + TOTAL + " · sel DEC " + selected + " (" + (sel.printable ? sel.glyph : sel.abbr) + ")";
   if (n > 0 && grid.querySelector(`[data-dec="${selected}"]`).hidden) {
@@ -103,7 +104,13 @@ document.querySelectorAll(".filters button").forEach(b => b.addEventListener("cl
   activeFilter = b.dataset.f;
   applyFilter();
 }));
-q.addEventListener("input", applyFilter);
+q.addEventListener("input", () => {
+  if (q.value.trim() !== "" && activeFilter !== "all") {
+    activeFilter = "all";
+    document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "all" ? "true" : "false"));
+  }
+  applyFilter();
+});
 document.getElementById("reset").addEventListener("click", () => { q.value = ""; activeFilter = "all"; document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "all" ? "true" : "false")); applyFilter(); q.focus(); });
 
 grid.addEventListener("keydown", ev => {
