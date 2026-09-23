@@ -16,6 +16,7 @@ colors:
   sky-confirm: "#7dd3fc"
   fault-red: "#f87171"
   hairline: "rgba(148, 184, 255, 0.16)"
+  veil: "rgba(6, 11, 22, 0.92)"
 typography:
   display:
     fontFamily: "'Chakra Petch', 'JetBrains Mono', ui-monospace, monospace"
@@ -58,6 +59,11 @@ typography:
     fontFamily: "'Chakra Petch', 'JetBrains Mono', ui-monospace, monospace"
     fontSize: "22px"
     fontWeight: 600
+  subtitle:
+    fontFamily: "'Chakra Petch', 'JetBrains Mono', ui-monospace, monospace"
+    fontSize: "26px"
+    fontWeight: 700
+    lineHeight: 1.15
   bitindex:
     fontFamily: "'JetBrains Mono', ui-monospace, monospace"
     fontSize: "9px"
@@ -185,6 +191,9 @@ Square instrument language: 0px radius everywhere, 1px hairline borders, full-bl
 
 ### Signature Component
 **Readout module.** Giant Chakra Petch glyph, ID line (name + category tag), six copyable fields (DEC/HEX/OCT/BIN/CHAR/HTML), 8-cell bit diagram with bit-index sublabels, one-sentence provenance line, full-ficha copy. The bit diagram is the proof device: every value must be re-derivable from it.
+
+### Splash Overlay
+**Style:** veil scrim, square Panel Night card (430px max), animated bloub avatar at 132px, tracked kicker, subtitle line, one primary action. Shown once per 30 days via `radixref_seen_v1` cookie; Esc also dismisses. Clicking the avatar plays a squash bounce; reduced-motion freezes avatar keyframes and skips the bounce.
 
 ## Do's and Don'ts
 
