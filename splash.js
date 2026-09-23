@@ -71,7 +71,7 @@
       var ey = r.top + (EYES[i].y + 125) * k;
       var dx = cx - ex, dy = cy - ey;
       var d = Math.hypot(dx, dy) || 1;
-      var m = Math.min(d, 8 * k) / d;
+      var m = Math.min(d, 5 * k) / d;
       pupils[i].style.translate = (dx * m).toFixed(1) + "px " + (dy * m).toFixed(1) + "px";
     }
   }
@@ -81,5 +81,11 @@
       var x = e.clientX, y = e.clientY;
       raf = rafFn(function () { raf = 0; aim(x, y); });
     });
+    // Sin recenter los ojos se quedaban "pillados" en el último offset
+    splash.addEventListener("pointerleave", recenter);
+    splash.addEventListener("pointercancel", recenter);
+  }
+  function recenter() {
+    for (var i = 0; i < pupils.length; i++) pupils[i].style.translate = "0px 0px";
   }
 })();

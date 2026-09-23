@@ -70,10 +70,10 @@ Responsive: ≤960px preview debajo de tabla, conversores 2 col · ≤560px conv
 3. Todo en una superficie: referencia + búsqueda + conversión sin salir.
 4. Estático y fiable: vanilla sin build, GitHub Pages directo.
 
-## Splash (mundo claro bloub)
+## Splash (oscuro, mundo del banco)
 
-Takeover claro estilo bloub.vercel.app: fondo `#F5F6F8`, bloub gigante a la derecha recortado cuyos ojos siguen el cursor (propiedad CSS `translate` sobre los keyframes de parpadeo, radio 8u), "RADIXREF" colosal desvanecido abajo, tarjeta blanca con aviso + About (GitHub ↗, Made with ♥ by ElDiablo45) + Entrar. Reducido: sin seguimiento ni bounce. Única superficie fuera del banco oscuro.
+Takeover oscuro: retícula de puntos, bloub gigante a la derecha, "RADIXREF" colosal en acero apagado recortado abajo, tarjeta Panel Night con aviso + About (GitHub ↗, Made with ♥ by ElDiablo45) + Entrar. Ojos con `translate` sobre keyframes (clamp 5u, recenter al salir), bounce al clicar. Reducido: sin seguimiento ni bounce.
 
 ## Estado detector (2026-09-23)
 
-`impeccable detect`: 0 errores. Avisos asumidos: tracking 0.14em solo en etiquetas cortas uppercase (uso permitido), kickers informativos con rango/versión (no decorativos), readout gigante como texto grande (pasa 3:1), palabra colosal del splash decorativa y `aria-hidden` (1.2:1 intencional como la referencia), splash con recorte intencional del bloub.
+`impeccable detect`: 0 errores. Avisos asumidos: tracking 0.14em solo en etiquetas cortas uppercase (uso permitido), kickers informativos con rango/versión (no decorativos), readout gigante como texto grande (pasa 3:1), palabra colosal del splash decorativa y `aria-hidden` (contraste bajo intencional como la referencia), splash con recorte intencional del bloub.

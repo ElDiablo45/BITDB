@@ -17,11 +17,6 @@ colors:
   fault-red: "#f87171"
   hairline: "rgba(148, 184, 255, 0.16)"
   veil: "rgba(6, 11, 22, 0.92)"
-  splash-paper: "#f5f6f8"
-  splash-ink: "#0e1830"
-  splash-mut: "#46536e"
-  splash-faint: "#dde3ee"
-  splash-line: "#e3e8f2"
 typography:
   display:
     fontFamily: "'Chakra Petch', 'JetBrains Mono', ui-monospace, monospace"
@@ -203,7 +198,7 @@ Square instrument language: 0px radius everywhere, 1px hairline borders, full-bl
 **Readout module.** Giant Chakra Petch glyph, ID line (name + category tag), six copyable fields (DEC/HEX/OCT/BIN/CHAR/HTML), 8-cell bit diagram with bit-index sublabels, one-sentence provenance line, full-ficha copy. The bit diagram is the proof device: every value must be re-derivable from it.
 
 ### Splash Overlay
-**Style:** light bloub-world takeover (Splash Paper ground, white card, faint colossal RADIXREF cropped at the base): giant avatar right advances the product blue, pupils track the cursor through the CSS `translate` property composed over the blink keyframes (8-unit clamp), click plays a squash bounce, reduced-motion freezes keyframes and skips tracking. Shown once per 30 days via `radixref_seen_v1` cookie; Esc also dismisses. The splash is the one surface allowed outside the dark bench: the tool itself stays dark.
+**Style:** dark bench takeover (no light world: eye strain vetoed it): dot-graticule ground, giant bloub right, faint Bit-Off-Steel RADIXREF cropped at the base, Panel Night card with notice + About + one primary action. Pupils track the cursor through the CSS `translate` property composed over the blink keyframes (5-unit clamp, recenter on leave); click plays a squash bounce; reduced-motion freezes keyframes and skips tracking. Shown once per 30 days via `radixref_seen_v1` cookie; Esc also dismisses.
 
 ## Do's and Don'ts
 

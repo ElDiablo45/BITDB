@@ -94,7 +94,10 @@ function applyFilter(){
       const sc = matchScore(BY_DEC[c.dataset.dec], s) * 1000 + Number(c.dataset.dec);
       if (sc < bestScore) { bestScore = sc; best = c; }
     }
-    if (best) select(Number(best.dataset.dec), {push:false});
+    if (best) {
+      select(Number(best.dataset.dec), {push:false});
+      try { best.scrollIntoView({block:"nearest"}); } catch (e) { /* noop */ }
+    }
   }
 }
 
