@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RadixRef — Tabla ASCII interactiva 0–127 + conversores bin/hex/oct</title>
+<meta name="description" content="Tabla ASCII completa e interactiva (0-127) con buscador, preview detallado y conversores binario, hexadecimal, octal y decimal. Estático, rápido, sin backend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#tabla">Saltar a la tabla</a>
+<div class="frame" aria-hidden="true"><span class="mk tl">+</span><span class="mk tr">+</span><span class="mk bl">+</span><span class="mk br">+</span></div>
+
+<header class="titleblock">
+  <div class="tb-left">
+    <p class="kicker">RADIXREF · V1 · 0–127</p>
+    <h1>Tabla ASCII <span>interactiva</span></h1>
+    <p class="sub">Busca por letra, símbolo o código. Selecciona para ver dec / hex / oct / bin y copiar. Conversores integrados abajo.</p>
+  </div>
+  <div class="tb-right">
+    <dl class="spec">
+      <div><dt>RANGO</dt><dd>0–127</dd></div>
+      <div><dt>MODO</dt><dd>OPERATE</dd></div>
+      <div><dt>DEPLOY</dt><dd>GITHUB PAGES</dd></div>
+    </dl>
+  </div>
+</header>
+
+<div class="toolbar" role="search">
+  <label class="search">
+    <span class="lbl">BUSCAR</span>
+    <input id="q" type="search" placeholder="A · 65 · 0x41 · LF · coma…" autocomplete="off" spellcheck="false" aria-describedby="count">
+  </label>
+  <div class="filters" role="group" aria-label="Filtrar por categoría">
+    <button data-f="all" aria-pressed="true">Todos</button>
+    <button data-f="control" aria-pressed="false">Control</button>
+    <button data-f="digits" aria-pressed="false">0–9</button>
+    <button data-f="upper" aria-pressed="false">A–Z</button>
+    <button data-f="lower" aria-pressed="false">a–z</button>
+    <button data-f="symbols" aria-pressed="false">Símbolos</button>
+  </div>
+  <p id="count" class="count" role="status" aria-live="polite"></p>
+</div>
+
+<main class="layout">
+  <section class="panel tablewrap" aria-labelledby="h-tabla">
+    <div class="phead">
+      <h2 id="h-tabla">TABLA · <span id="rangeLbl">128</span> ENTRADAS</h2>
+      <p class="hint">Flechas ← → ↑ ↓ para moverte · Enter copia el carácter</p>
+    </div>
+    <div id="tabla" class="grid" role="listbox" aria-label="Tabla ASCII 0 a 127" tabindex="0"></div>
+    <div id="empty" class="empty" hidden>
+      <p>Sin resultados para esa búsqueda.</p>
+      <button id="reset">Limpiar búsqueda</button>
+    </div>
+  </section>
+
+  <aside class="panel preview" aria-labelledby="h-prev" aria-live="polite">
+    <div class="phead">
+      <h2 id="h-prev">PREVIEW</h2>
+      <div class="pnav">
+        <button id="prevBtn" aria-label="Anterior">←</button>
+        <button id="nextBtn" aria-label="Siguiente">→</button>
+      </div>
+    </div>
+    <div class="readout">
+      <div id="big" class="big" aria-hidden="true">A</div>
+      <div class="idline"><strong id="pName">A — Letra mayúscula</strong><span id="pCat" class="tag">A–Z</span></div>
+    </div>
+    <dl class="fields">
+      <div><dt>DEC</dt><dd><code id="fDec">65</code><button data-copy="fDec">Copiar</button></dd></div>
+      <div><dt>HEX</dt><dd><code id="fHex">0x41</code><button data-copy="fHex">Copiar</button></dd></div>
+      <div><dt>OCT</dt><dd><code id="fOct">0o101</code><button data-copy="fOct">Copiar</button></dd></div>
+      <div><dt>BIN</dt><dd><code id="fBin">01000001</code><button data-copy="fBin">Copiar</button></dd></div>
+      <div><dt>CHAR</dt><dd><code id="fChar">A</code><button data-copy="fChar">Copiar</button></dd></div>
+      <div><dt>HTML</dt><dd><code id="fHtml">&amp;#65;</code><button data-copy="fHtml">Copiar</button></dd></div>
+    </dl>
+    <div class="bits" aria-label="Diagrama de bits">
+      <span class="blbl">BITS 7–0</span>
+      <div id="bits" class="bitrow"></div>
+    </div>
+    <p id="pDesc" class="desc"></p>
+    <button id="copyAll" class="primary">Copiar ficha completa</button>
+  </aside>
+</main>
+
+<section class="panel converters" aria-labelledby="h-conv">
+  <div class="phead">
+    <h2 id="h-conv">CONVERSORES · BIN / OCT / DEC / HEX</h2>
+    <p class="hint">Edita cualquier base, el resto se sincroniza en vivo</p>
+  </div>
+  <div class="convgrid">
+    <label>BINARIO<input id="cBin" inputmode="numeric" placeholder="01000001" spellcheck="false"></label>
+    <label>OCTAL<input id="cOct" inputmode="numeric" placeholder="101" spellcheck="false"></label>
+    <label>DECIMAL<input id="cDec" inputmode="numeric" placeholder="65" spellcheck="false"></label>
+    <label>HEXADECIMAL<input id="cHex" inputmode="text" placeholder="41" spellcheck="false"></label>
+  </div>
+  <p id="cErr" class="err" role="alert" hidden></p>
+  <div class="convact">
+    <button id="toTable">Ver en tabla</button>
+    <button id="cClear">Limpiar</button>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>RADIXREF V1 · ASCII 0–127 · estático sin backend · <a href="https://github.com/ElDiablo45/RadixRef">repo</a></p>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
