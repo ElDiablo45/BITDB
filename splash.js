@@ -40,6 +40,7 @@
       var q = document.getElementById("q");
       if (q && q.focus) { try { q.focus({ preventScroll: true }); } catch (e) { q.focus(); } }
     }, 180);
+    window.setTimeout(function () { splash.style.display = "none"; }, 800);
   }
   enter.addEventListener("click", dismiss);
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") dismiss(); });

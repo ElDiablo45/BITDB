@@ -135,7 +135,7 @@ Restrained strategy: tinted blue-black neutrals plus one signal blue; action nav
 
 ## Typography
 
-**Display Font:** Chakra Petch (with JetBrains Mono fallback)
+**Display Font:** Chakra Petch (self-hosted `assets/fonts/`, maxp.maxZones patched 0→2: Google's build is rejected by Firefox; with JetBrains Mono fallback)
 **Body Font:** JetBrains Mono (with system mono fallback)
 **Label/Mono Font:** JetBrains Mono, uppercase, tracked — same family as body, distinguished by case + tracking, not a third face.
 

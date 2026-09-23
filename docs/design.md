@@ -31,7 +31,7 @@ Reglas: **One Accent** (el azul solo marca selección/estado) · **Tinted Black*
 
 ## Tipografías
 
-- **Display / readout:** `Chakra Petch` 700 — título (clamp 34–58px) y glifo gigante del preview (88px).
+- **Display / readout:** `Chakra Petch` 700 — título (clamp 34–58px) y glifo gigante del preview (88px). Autofuente en `assets/fonts/` (parche maxZones 0→2: el build de Google lo rechaza Firefox).
 - **Dato / cuerpo / etiquetas:** `JetBrains Mono` 400/500/700 — cuerpo 14px/1.55, etiquetas 12px uppercase + tracking 0.14em.
 - Prohibidas: Inter, Space Mono, IBM Plex, serif display. Solo 2 familias.
 
