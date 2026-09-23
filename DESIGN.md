@@ -17,6 +17,11 @@ colors:
   fault-red: "#f87171"
   hairline: "rgba(148, 184, 255, 0.16)"
   veil: "rgba(6, 11, 22, 0.92)"
+  splash-paper: "#f5f6f8"
+  splash-ink: "#0e1830"
+  splash-mut: "#46536e"
+  splash-faint: "#dde3ee"
+  splash-line: "#e3e8f2"
 typography:
   display:
     fontFamily: "'Chakra Petch', 'JetBrains Mono', ui-monospace, monospace"
@@ -68,6 +73,11 @@ typography:
     fontFamily: "'JetBrains Mono', ui-monospace, monospace"
     fontSize: "9px"
     fontWeight: 400
+  colossal:
+    fontFamily: "'Chakra Petch', 'JetBrains Mono', ui-monospace, monospace"
+    fontSize: "clamp(120px, 21vw, 330px)"
+    fontWeight: 700
+    lineHeight: 0.8
 rounded:
   sharp: "0px"
 spacing:
@@ -146,7 +156,7 @@ Restrained strategy: tinted blue-black neutrals plus one signal blue; action nav
 - **Readout** (700, 88px, 1): selected glyph in preview. Large text, 3:1 minimum.
 - **Body** (400, 14px, 1.55): descriptions, values, max ~60ch.
 - **Label** (500, 12px, 0.14em, uppercase): panel headers, field names, filter state. Floor is 11px; nothing functional ships below it.
-- **Support roles** (same families, on-ramp): meta 11px (cell annotations, tags), field 13px (values, toast), input 15px (converter inputs), marker 18px (frame `+`), cellglyph 22px (table glyph), bitindex 9px (bit-position sublabels, exempt sub-caption).
+- **Support roles** (same families, on-ramp): meta 11px (cell annotations, tags), field 13px (values, toast), input 15px (converter inputs), marker 18px (frame `+`), cellglyph 22px (table glyph), bitindex 9px (bit-position sublabels, exempt sub-caption), colossal clamp (splash giant word).
 
 ### Named Rules (optional)
 **The Two-Face Rule.** Chakra Petch for readout/display, JetBrains Mono for everything else. No third face, no Inter-as-display, no Space Mono/IBM Plex.
@@ -193,7 +203,7 @@ Square instrument language: 0px radius everywhere, 1px hairline borders, full-bl
 **Readout module.** Giant Chakra Petch glyph, ID line (name + category tag), six copyable fields (DEC/HEX/OCT/BIN/CHAR/HTML), 8-cell bit diagram with bit-index sublabels, one-sentence provenance line, full-ficha copy. The bit diagram is the proof device: every value must be re-derivable from it.
 
 ### Splash Overlay
-**Style:** veil scrim, square Panel Night card (430px max), animated bloub avatar at 132px, tracked kicker, subtitle line, one primary action. Shown once per 30 days via `radixref_seen_v1` cookie; Esc also dismisses. Clicking the avatar plays a squash bounce; reduced-motion freezes avatar keyframes and skips the bounce.
+**Style:** light bloub-world takeover (Splash Paper ground, white card, faint colossal RADIXREF cropped at the base): giant avatar right advances the product blue, pupils track the cursor through the CSS `translate` property composed over the blink keyframes (8-unit clamp), click plays a squash bounce, reduced-motion freezes keyframes and skips tracking. Shown once per 30 days via `radixref_seen_v1` cookie; Esc also dismisses. The splash is the one surface allowed outside the dark bench: the tool itself stays dark.
 
 ## Do's and Don'ts
 
