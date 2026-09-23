@@ -61,6 +61,15 @@ const cells = [...grid.querySelectorAll(".cell")];
 function cellChar(e){ return e.printable ? (e.dec < 128 ? String.fromCharCode(e.dec) : e.glyph) : ""; }
 function visibleCells(){ return cells.filter(c => !c.hidden); }
 
+function matchScore(e, s){
+  const g = e.glyph.toLowerCase(), a = e.abbr.toLowerCase();
+  if (String(e.dec) === s) return 0;
+  if (g === s || a === s) return 1;
+  if (e.en.toLowerCase().startsWith(s) || e.es.toLowerCase().startsWith(s)) return 2;
+  if (g.startsWith(s) || a.startsWith(s)) return 3;
+  return 4;
+}
+
 function applyFilter(){
   const s = q.value.trim().toLowerCase();
   let n = 0;
@@ -78,8 +87,13 @@ function applyFilter(){
   const sel = BY_DEC[selected];
   count.textContent = n + " / " + TOTAL + " · sel DEC " + selected + " (" + (sel.printable ? sel.glyph : sel.abbr) + ")";
   if (n > 0 && grid.querySelector(`[data-dec="${selected}"]`).hidden) {
-    const first = visibleCells()[0];
-    if (first) select(Number(first.dataset.dec), {push:false});
+    const vis = visibleCells();
+    let best = vis[0], bestScore = Infinity;
+    for (const c of vis) {
+      const sc = matchScore(BY_DEC[c.dataset.dec], s) * 1000 + Number(c.dataset.dec);
+      if (sc < bestScore) { bestScore = sc; best = c; }
+    }
+    if (best) select(Number(best.dataset.dec), {push:false});
   }
 }
 
