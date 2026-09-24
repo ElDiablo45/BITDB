@@ -1,5 +1,5 @@
 (function () {
-  var KEY = "radixref_seen_v1";
+  var KEY = "bitdb_seen_v1";
   function getC(n) {
     try {
       var m = document.cookie.match(new RegExp("(?:^|; )" + n + "=([^;]*)"));

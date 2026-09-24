@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eldiablo45.github.io/RadixRef/sitemap.xml

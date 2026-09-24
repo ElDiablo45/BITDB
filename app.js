@@ -195,7 +195,7 @@ function toast(m){
 document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => copyText($(b.dataset.copy).textContent, "Copiado: " + $(b.dataset.copy).textContent)));
 $("copyAll").addEventListener("click", () => {
   const e = BY_DEC[selected];
-  copyText(["RadixRef " + selected, "DEC " + selected, hex(selected), oct(selected), "BIN " + bin(selected), "HTML " + htmlEnt(e), e.es].join(" · "), "Ficha DEC " + selected + " copiada");
+  copyText(["BITDB " + selected, "DEC " + selected, hex(selected), oct(selected), "BIN " + bin(selected), "HTML " + htmlEnt(e), e.es].join(" · "), "Ficha DEC " + selected + " copiada");
 });
 $("prevBtn").addEventListener("click", () => select((selected + TOTAL - 1) % TOTAL));
 $("nextBtn").addEventListener("click", () => select((selected + 1) % TOTAL));

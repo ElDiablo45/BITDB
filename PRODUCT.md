@@ -1,4 +1,4 @@
-# Product
+# Product: BITDB
 
 <!-- impeccable:product-schema 1 -->
 
@@ -14,7 +14,7 @@ delegated: HTML/CSS/JS estático vanilla sin build (recomendación aceptada para
 
 Desarrolladores, estudiantes y makers que trabajan con codificaciones, protocolos y depuración de bajo nivel. Situación: necesitan mirar un código ASCII, símbolo o valor bin/hex/oct y copiarlo rápido mientras programan. Job: buscar → previsualizar detalle → copiar/convertir sin fricción.
 
-## Product Purpose
+## Product: BITDB Purpose
 
 Tabla ASCII completa e interactiva con buscadores por letra, símbolo, categoría y código, más preview detallado del seleccionado. Existe para hacer la referencia ASCII usable a velocidad de herramienta, no como documento estático. Éxito = encontrar cualquier carácter en <3s y copiar su representación correcta.
 
@@ -39,11 +39,11 @@ Sin decidir (abierto, no inventar):
 - Datos: nombres ES de elcodigoascii.com.ar (solo datos, diseño propio).
 - i18n: ¿solo ES o ES/EN?
 - Persistencia local (favoritos / historial) — propuesto, no confirmado.
-- Nombre final: repo sugiere `RadixRef`, pendiente confirmación.
+- Nombre: `BITDB` (antes RadixRef; el repo GitHub conserva la URL por compatibilidad).
 
 ## Brand Commitments
 
-Nombre de trabajo: `RadixRef` (del repo). Sin logo ni voz cerrada.
+Nombre de trabajo: `BITDB`. Sin logo ni voz cerrada.
 Dirección visual vinculante del usuario: tonos azules (sustituye acento lima/verde de las refs). HUD oscuro técnico se mantiene, material de acento se traduce a azul.
 Referencias visuales aportadas (4 imágenes, sin expandir a tokens aquí — eso va en new-work/DESIGN.md):
 1. Panel técnico oscuro estilo HUD con borde fino, marcador `+`, etiqueta `HOW DOES IT WORK?`, acento lima.
@@ -57,7 +57,7 @@ Referencias visuales aportadas (4 imágenes, sin expandir a tokens aquí — eso
 - Sin contenido real, testimonios, datos o assets. No fabricar caracteres, descripciones o benchmarks.
 - Repo vacío `https://github.com/ElDiablo45/RadixRef.git`, rama `main` sin commits.
 
-## Product Principles
+## Product: BITDB Principles
 
 1. Velocidad de herramienta: buscar y copiar en dos gestos, teclado primero.
 2. Precisión de dato: cada representación debe ser exacta y verificable, cero decoración que confunda.

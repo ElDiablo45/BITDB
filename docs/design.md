@@ -1,4 +1,4 @@
-# design.md — RadixRef V1
+# design.md — BITDB
 
 > Archivo de trabajo: colores, estilo visual, tipografías y layout.
 > El canónico para la skill impeccable es `../DESIGN.md` (mismo sistema, formato spec).
@@ -39,7 +39,7 @@ Reglas: **One Accent** (el azul solo marca selección/estado) · **Tinted Black*
 
 ```
 +----------------------------------------------------------+
-| TITLE BLOCK   RADIXREF·0-255          [RANGO][MODO][DEPLOY]|
+| TITLE BLOCK   BITDB·0-255             [RANGO][MODO][DEPLOY]|
 +----------------------------------------------------------+
 | BUSCAR [....................]  [Todos][Control][0-9][A-Z] |
 |                              [a-z][Símbolos]  128/128    |
@@ -72,7 +72,7 @@ Responsive: ≤960px preview debajo de tabla, conversores 2 col · ≤560px conv
 
 ## Splash (oscuro, mundo del banco)
 
-Takeover oscuro: retícula de puntos, bloub gigante a la derecha, "RADIXREF" colosal en acero apagado recortado abajo, tarjeta Panel Night con aviso + About (GitHub ↗, Made with ♥ by ElDiablo45) + Entrar. Ojos con `translate` sobre keyframes (clamp 5u, recenter al salir), bounce al clicar. Reducido: sin seguimiento ni bounce.
+Takeover oscuro: retícula de puntos, bloub gigante a la derecha, "BITDB" colosal en acero apagado recortado abajo, tarjeta Panel Night con aviso + About (GitHub ↗, Made with ♥ by ElDiablo45) + Entrar. Ojos con `translate` sobre keyframes (clamp 5u, recenter al salir), bounce al clicar. Reducido: sin seguimiento ni bounce.
 
 ## Estado detector (2026-09-23)
 

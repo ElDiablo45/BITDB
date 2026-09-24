@@ -7,7 +7,7 @@ related_targets: []
 
 ## Direction contract
 
-THESIS: RadixRef owns simultaneous multi-base reading of one byte. It refuses the generic ASCII grid-doc and the neon-hacker terminal: reference, search and conversion live in one operating surface.
+THESIS: BITDB owns simultaneous multi-base reading of one byte. It refuses the generic ASCII grid-doc and the neon-hacker terminal: reference, search and conversion live in one operating surface.
 
 OWN-WORLD: Deep blue-black diazo ground with etched grid, hairline steel-blue rules, corner `+` registration marks, engraved mono labels. One signal blue carries selection and live state; bit-fields shade in steel blue. Chakra Petch readout numerals, JetBrains Mono data, system sans for chrome. Recognizable even empty: graticule + title block + thumbwheel base switch.
 

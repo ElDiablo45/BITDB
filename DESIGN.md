@@ -1,5 +1,5 @@
 ---
-name: RadixRef
+name: BITDB
 description: Tabla ASCII interactiva 0–255 con conversores bin/oct/dec/hex en HUD azul oscuro.
 colors:
   signal-blue: "#4d8dff"
@@ -100,13 +100,13 @@ components:
     padding: "11px 12px"
 ---
 
-# Design System: RadixRef
+# Design System: BITDB
 
 ## Overview
 
 **Creative North Star: "The Blue Register Bench"**
 
-RadixRef looks like a laboratory bench for bytes: a deep diazo-blue ground etched with a dot graticule, steel-blue hairline panels, engraved uppercase labels and one signal blue that only ever means "live". Density is high but ordered — a register map you can scan at speed, with a single readout module that holds the selected value at display scale. No marketing hero, no decoration: the tool is the surface.
+BITDB looks like a laboratory bench for bytes: a deep diazo-blue ground etched with a dot graticule, steel-blue hairline panels, engraved uppercase labels and one signal blue that only ever means "live". Density is high but ordered — a register map you can scan at speed, with a single readout module that holds the selected value at display scale. No marketing hero, no decoration: the tool is the surface.
 
 The system refuses the generic white ASCII doc and the neon-hacker terminal. Dark is forced by the scene (debugging in a dim room, screen as lamp), blue is the user's pinned constraint translated from lime/green refs, and every decorative urge is spent in exactly one place: the digit cross-fade on selection.
 
@@ -198,7 +198,7 @@ Square instrument language: 0px radius everywhere, 1px hairline borders, full-bl
 **Readout module.** Giant Chakra Petch glyph, ID line (name + category tag), six copyable fields (DEC/HEX/OCT/BIN/CHAR/HTML), 8-cell bit diagram with bit-index sublabels, one-sentence provenance line, full-ficha copy. The bit diagram is the proof device: every value must be re-derivable from it.
 
 ### Splash Overlay
-**Style:** dark bench takeover (no light world: eye strain vetoed it): dot-graticule ground, giant bloub right, faint Bit-Off-Steel RADIXREF cropped at the base, Panel Night card with notice + About + one primary action. Pupils track the cursor through the CSS `translate` property composed over the blink keyframes (5-unit clamp, recenter on leave); click plays a squash bounce; reduced-motion freezes keyframes and skips tracking. Shown once per 30 days via `radixref_seen_v1` cookie; Esc also dismisses.
+**Style:** dark bench takeover (no light world: eye strain vetoed it): dot-graticule ground, giant bloub right, faint Bit-Off-Steel BITDB cropped at the base, Panel Night card with notice + About + one primary action. Pupils track the cursor through the CSS `translate` property composed over the blink keyframes (5-unit clamp, recenter on leave); click plays a squash bounce; reduced-motion freezes keyframes and skips tracking. Shown once per 30 days via `bitdb_seen_v1` cookie; Esc also dismisses.
 
 ## Do's and Don'ts
 
