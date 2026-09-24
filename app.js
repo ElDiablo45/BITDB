@@ -61,42 +61,85 @@ const cells = [...grid.querySelectorAll(".cell")];
 function cellChar(e){ return e.printable ? (e.dec < 128 ? String.fromCharCode(e.dec) : e.glyph) : ""; }
 function visibleCells(){ return cells.filter(c => !c.hidden); }
 
+function fold(s){
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .replace(/æ/g, "ae").replace(/ø/g, "o").replace(/ß/g, "ss").replace(/ƒ/g, "f").replace(/ı/g, "i");
+}
+function isUpperCh(ch){ return ch.toLowerCase() !== ch.toUpperCase() && ch === ch.toUpperCase(); }
+function isLowerCh(ch){ return ch.toLowerCase() !== ch.toUpperCase() && ch === ch.toLowerCase(); }
+function sameCase(a, b){
+  if (isUpperCh(b)) return isUpperCh(a);
+  if (isLowerCh(b)) return isLowerCh(a);
+  return true;
+}
+function wordsStartWith(text, s){
+  return text.toLowerCase().split(/[\s,;·/()\-–—]+/).some(w => w && w.startsWith(s));
+}
+
+function matchEntry(e, qOrig){
+  const q = qOrig.trim().toLowerCase();
+  if (!q) return 99;
+  if (/^\d{1,3}$/.test(q)) {
+    if (e.glyph === qOrig.trim()) return 0;
+    if (String(e.dec) === q) return 1;
+    return -1;
+  }
+  const hexM = q.match(/^0x([0-9a-f]{1,2})$/);
+  if (hexM) {
+    const n = parseInt(hexM[1], 16);
+    return e.dec === n ? 1 : -1;
+  }
+  if (e.glyph === qOrig.trim()) return 0;
+  if (e.abbr.toUpperCase() === q.toUpperCase() && q.length >= 2) return 1;
+  if (q.length === 1) {
+    if (fold(e.glyph) === fold(q) && sameCase(e.glyph, qOrig.trim())) return 2;
+    return -1;
+  }
+  if (wordsStartWith(e.en, q) || wordsStartWith(e.es, q)) return 3;
+  if (e.abbr.toLowerCase().startsWith(q)) return 3;
+  return -1;
+}
+
 function matchScore(e, s){
-  const g = e.glyph.toLowerCase(), a = e.abbr.toLowerCase();
-  if (String(e.dec) === s) return 0;
-  if (g === s || a === s) return 1;
-  if (e.en.toLowerCase().startsWith(s) || e.es.toLowerCase().startsWith(s)) return 2;
-  if (g.startsWith(s) || a.startsWith(s)) return 3;
-  return 4;
+  return matchEntry(e, s);
+}
+
+function isVariant(e, qOrig, sc){
+  const t = qOrig.trim();
+  if (t.length !== 1 || sc < 0) return false;
+  if (/^\d$/.test(t)) return sc > 0;
+  return sc === 2;
 }
 
 function applyFilter(){
-  const s = q.value.trim().toLowerCase();
+  const qOrig = q.value;
+  const s = qOrig.trim().toLowerCase();
   let n = 0;
+  const scored = [];
   for (const c of cells) {
     const e = BY_DEC[c.dataset.dec];
-    const hay = [e.dec, "0x"+e.dec.toString(16), e.dec.toString(16), e.dec.toString(8), e.abbr.toLowerCase(), e.en.toLowerCase(), e.es.toLowerCase(), e.glyph.toLowerCase(), CAT_LBL[e.cat].toLowerCase()].join(" ");
     const okF = activeFilter === "all" || e.cat === activeFilter;
-    const okS = !s || hay.includes(s);
+    const sc = !s ? 99 : matchEntry(e, qOrig);
+    const okS = !s || sc >= 0;
     const show = okF && okS;
     c.hidden = !show;
-    if (show) n++;
+    c.classList.toggle("variant", show && isVariant(e, qOrig, sc));
+    if (show) { n++; if (s) scored.push([sc, e.dec, c]); }
   }
   rangeLbl.textContent = n;
   empty.hidden = n !== 0;
   if (n === 0) $("emptyQ").textContent = '"' + q.value.trim() + '"' + (activeFilter !== "all" ? " en " + CAT_LBL[activeFilter] : "");
   const sel = BY_DEC[selected];
   count.textContent = n + " / " + TOTAL + " · sel DEC " + selected + " (" + (sel.printable ? sel.glyph : sel.abbr) + ")";
-  if (n > 0 && grid.querySelector(`[data-dec="${selected}"]`).hidden) {
-    const vis = visibleCells();
-    let best = vis[0], bestScore = Infinity;
-    for (const c of vis) {
-      const sc = matchScore(BY_DEC[c.dataset.dec], s) * 1000 + Number(c.dataset.dec);
-      if (sc < bestScore) { bestScore = sc; best = c; }
-    }
-    if (best) {
-      select(Number(best.dataset.dec), {push:false});
-      try { best.scrollIntoView({block:"nearest"}); } catch (e) { /* noop */ }
+  if (n > 0 && s) {
+    scored.sort((a, b) => (a[0] - b[0]) || (a[1] - b[1]));
+    const bestDec = scored[0][1];
+    const bestCell = scored[0][2];
+    if (bestDec !== selected) {
+      select(bestDec, {push:false});
+      try { bestCell.scrollIntoView({block:"nearest"}); } catch (e) { /* noop */ }
+    } else {
+      try { bestCell.scrollIntoView({block:"nearest"}); } catch (e) { /* noop */ }
     }
   }
 }
